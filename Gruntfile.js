@@ -15,7 +15,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
-    // load all grunt tasks
+    // task that loads all grunt tasks in the directory
     require('load-grunt-tasks')(grunt);
 
     // configurable paths
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
         watch: {
             emberTemplates: {
                 files: '<%= yeoman.app %>/templates/**/*.hbs',
-                tasks: ['emberTemplates']
+                tasks: ['emberTemplates', 'connect:livereload']
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -273,7 +273,7 @@ module.exports = function (grunt) {
                         ]
                     }
                 ]
-            }, 
+            },
             dist: {
                 files: [
                     {
